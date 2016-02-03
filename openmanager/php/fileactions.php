@@ -38,7 +38,7 @@
 				$tname = $_FILES['userfile']['name'];
 				
 				//do some crude cleaning/sanitizing of the name (needs to be improved)
-				$name = strtr($tname, 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜİàáâãäåçèéêëìíîïğòóôõöùúûüıÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+                                $name = preg_replace('/[^\x20-\x7E]/','', $tname);
 				$name = preg_replace('/\s+/', '-', $name); //remove spaces
 				
 				
@@ -97,7 +97,7 @@
 					}
 					
 					//set the desired destination filename
-					$destination = $uploadfolder.$imagesfolder.$name;
+					$destination = $uploadfolder.$imagesfolder.$filename.".".$fileext;
 					
 					//now check for the existence of a file at the destination, if it exists we need to change the filename
 					if(file_exists($destination))
@@ -347,7 +347,7 @@
 					{
 							if(ImageJPEG($result, $origpath, 90))
 							{
-								return "jpg";
+								return $extension;
 							}
 							else
 							{

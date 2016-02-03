@@ -61,7 +61,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#elvtimage_dlg.title}</title>
-	<script type="text/javascript" src="../../tiny_mce_popup.js" ></script>
+	<script type="text/javascript" src="/include/javascript/tiny_mce/tiny_mce_popup.js" ></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript">
 	if(typeof tinyMCEPopup !== 'undefined')
